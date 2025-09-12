@@ -3,12 +3,14 @@
 # Nombre del entorno virtual
 ENV_DIR="env"
 
-# Detectar el comando de Python
-PYTHON_CMD=$(command -v python3 || command -v python)
-
 # Verificar si el comando de Python fue encontrado
-if [ -z "$PYTHON_CMD" ]; then
-    echo "Error: Python no está instalado."
+# Detectar si usamos python o python3
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
+    echo -e "${RED}❌ No se encontró ni 'python' ni 'python3'${NC}"
     exit 1
 fi
 
@@ -21,8 +23,12 @@ else
     $PYTHON_CMD -m venv "$ENV_DIR"
 fi
 
+echo -e "${GREEN}✔️ Usando: $PYTHON${NC}"
+
+
 # Levantar entorno virtual
 source "$ENV_DIR/bin/activate"
+
 
 # Instalar Django si no está instalado
 if ! $PYTHON_CMD -c "import django" &> /dev/null; then
