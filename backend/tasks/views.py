@@ -8,5 +8,5 @@ class TaskView(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
 class HomeRedirectView(RedirectView):
-    url = '/docs/'
+    url = 'api/docs/'
     
