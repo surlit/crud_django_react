@@ -41,7 +41,7 @@ useEffect( ()=>{
     getTaskF();
 },[])
   return (
-    <div className='max-w-xl mx-auto'>
+    <div className='max-w-xl mx-auto text-white'>
       <h1>Crea una Tarea</h1>
       <form onSubmit={onSubmit}>
           <input 
@@ -59,13 +59,13 @@ useEffect( ()=>{
             />
             {errors.description && <span>Description es required</span>}
           <button
-            className='bg-indigo-500 p-3 rounded-lg block w-full mt-3'
+            className='bg-indigo-500 p-3 rounded-lg block w-full mt-3 text-white'
           >Save</button>
           
           {params.id && 
             <div className='flex justify-end'>
               <button
-                className='bg-red-500 p-3 rounded-lg w-48 mt-3'
+                className='bg-red-500 p-3 rounded-lg w-48 mt-3 text-white'
                 onClick={async () => {
                 const aceppt = window.confirm('are you sure ')
                 if(aceppt){

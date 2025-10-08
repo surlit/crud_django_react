@@ -1,13 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* * {
+  color: white;
+} */
 
 body{
   background: #202020;
-  color: white;
-
 }
-* {
-  color: white;
 
+button{
+  color: black;
 }
