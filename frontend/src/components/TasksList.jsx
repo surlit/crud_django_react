@@ -12,6 +12,14 @@ export default function TasksList() {
         }
         loadTasks();
     }, []);
+    
+    async function deleteTaskP (){
+
+    }
+    
+    async function doneTaskP (){
+
+    }
   return (
     
     <div 
@@ -22,7 +30,9 @@ export default function TasksList() {
             <TasksCard
                 key={task.id}  
                 data={task}
-        />
+                deleteTaskP={() => deleteTaskP}
+                DoneTaskP={() => DoneTaskP}
+            />
         ))}
         
     </div>
