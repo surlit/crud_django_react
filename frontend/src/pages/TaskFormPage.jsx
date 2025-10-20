@@ -65,39 +65,41 @@ useEffect( ()=>{
             {...register('description',{required:true})}
             />
             {errors.description && <span>Description es required</span>}
-          <button
-            className='bg-indigo-800 hover:bg-indigo-400 p-3 rounded-lg block w-full mt-3 cursor-pointer'
-          >
-            <span className='text-white'>Save </span>
-          </button>
-          
-          {
-            params.id && 
-            <div className='flex justify-end'>
-              <button
-                className='bg-red-500 p-3 rounded-lg w-48 mt-3 text-white'
-                onClick={async () => {
-                    const aceppt = window.confirm('are you sure ')
-                  if(aceppt){
-                    await deleteTask(params.id)
-                    toast.success('Tarea Elimanada',{
-                      position:"bottom-right",
-                      style:{
-                        background:'#101010',
-                        color:'white'
+          <div className='flex '>
+            <button
+              className='bg-indigo-800 hover:bg-indigo-400 p-3 rounded-lg block w-full mt-3 cursor-pointer ml-2'
+            >
+              <span className='text-white'>Save </span>
+            </button>
+            
+            {
+              params.id && 
+              <div className=''>
+                <button
+                  className='cursor-pointer bg-red-600 hover:bg-red-400 p-3 rounded-lg w-48 mt-3 text-white'
+                  onClick={async () => {
+                      const aceppt = window.confirm('are you sure ')
+                    if(aceppt){
+                      await deleteTask(params.id)
+                      toast.success('Tarea Elimanada',{
+                        position:"bottom-right",
+                        style:{
+                          background:'#101010',
+                          color:'white'
+                        }
                       }
+                      )
                     }
-                    )
                   }
-                }
-                }
-                
-                
-              >
-                Delete
-              </button>
-            </div>
-          }
+                  }
+                  
+                  
+                >
+                  <span className='text-white'>Delete</span>
+                </button>
+              </div>
+            }
+          </div>
           </form>
       </div>
     

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {deleteTask,updateTask} from '../api/tasks.api'
+import {useNavigate} from 'react-router-dom'
+
 export default function TasksCard({
     key,
     data,
@@ -7,6 +9,7 @@ export default function TasksCard({
     tasksState
 }) {
   const [Mode,setMode] = useState('pro')
+ const navigate = useNavigate();
 
   useEffect(()=>{
     if(data && Mode == 'dev'){
@@ -37,6 +40,10 @@ export default function TasksCard({
 
       }
   }
+  async function taskEdit(e){
+    navigate(`/tasks/${data.id}`)
+  }
+
   return (
     <div key={key} id={data.id} className='mr-5 border-white border rounded-lg  text-xl text-center mb-1 p-5 ' >
         <span className='flex justify-between '>
@@ -44,10 +51,10 @@ export default function TasksCard({
           <button title='Delete Task' className='cursor-pointer rounded-full p-1 hover:bg-red-500 ' onClick={deleteTaskP}>🗑️</button>
         </span>
       
-        <h2 className='text-2xl '>{data.title}</h2>
+        <h2 className='text-2xl cursor-pointer' onClick={taskEdit}>{data.title}</h2>
       
         <p className=''>{data.description}</p>
-        <p className=''>{data.done ? 'Hecho ' : 'No hecho '}</p>
+        <p className=''>{data.done ? 'Done ' : 'No Done '}</p>
         
     </div>
   )
