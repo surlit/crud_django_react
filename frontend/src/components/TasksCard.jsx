@@ -46,15 +46,17 @@ export default function TasksCard({
 
   return (
     <div key={key} id={data.id} className='mr-5 border-white border rounded-lg  text-xl text-center mb-1 p-5 ' >
-        <span className='flex justify-between '>
-          <button title={data.done ? 'Done task' : 'Not Done'} className='cursor-pointer rounded-full p-1 hover:bg-green-500 ' onClick={doneTaskP}>{data.done ? '✅' : '❎'}</button> 
-          <button title='Delete Task' className='cursor-pointer rounded-full p-1 hover:bg-red-500 ' onClick={deleteTaskP}>🗑️</button>
-        </span>
-      
-        <h2 className='text-2xl cursor-pointer' onClick={taskEdit}>{data.title}</h2>
+      <span className='flex justify-between '>
+        <button title={data.done ? 'Done task' : 'Not Done'} className='cursor-pointer rounded-full p-1 hover:bg-green-500 ' onClick={doneTaskP}>{data.done ? '✅' : '❎'}</button> 
+        <button title='Delete Task' className='cursor-pointer rounded-full p-1 hover:bg-red-500 ' onClick={deleteTaskP}>🗑️</button>
+      </span>
+      <div onClick={taskEdit} className='cursor-pointer'>
+
+        <h2 className='text-2xl ' >{data.title}</h2>
       
         <p className=''>{data.description}</p>
         <p className=''>{data.done ? 'Done ' : 'No Done '}</p>
+      </div>
         
     </div>
   )
