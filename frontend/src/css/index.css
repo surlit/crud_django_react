@@ -1,15 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* * {
+  color: white;
+} */
 
 body{
   background: #202020;
-  
-
 }
 
-/* #cardCus{
-  color: white;
-  margin-left: 2px;
-  margin-bottom: 2px;
-} */
+button{
+  color: black;
+}
