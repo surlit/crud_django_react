@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import {createTask,deleteTask,updateTask,getTask} from '../api/tasks.api'
-import {useNavigate, useParams} from 'react-router-dom'
+import {data, useNavigate, useParams} from 'react-router-dom'
 import {toast} from 'react-hot-toast'
 
 export  function TaskFormPage() {
@@ -10,6 +10,9 @@ export  function TaskFormPage() {
  const params = useParams()
  
  const onSubmit = handleSubmit( async data=> {
+    console.log(data);
+    console.log(typeof data);
+
     if(params.id){
       await updateTask(params.id,data)
       toast.success('Tarea Actualizada',{position:"bottom-right",
@@ -19,7 +22,10 @@ export  function TaskFormPage() {
         }
       })
     }else{
+      
+      data.title = data.title.toLocaleUpperCase()
       await createTask(data)
+      
       toast.success('Tarea Creada',{position:"bottom-right",
         style:{
           background:'#101010',
@@ -38,8 +44,8 @@ useEffect( ()=>{
       setValue('description',description)
       
      }
-    }
-    getTaskF();
+  }
+  getTaskF();
 },[])
   return (
     <>
