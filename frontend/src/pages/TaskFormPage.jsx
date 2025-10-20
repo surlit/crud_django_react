@@ -7,12 +7,11 @@ import {toast} from 'react-hot-toast'
 export  function TaskFormPage() {
  const {register,handleSubmit,formState:{errors},setValue} = useForm()
  const navigate = useNavigate()
+ 
  const params = useParams()
  
  const onSubmit = handleSubmit( async data=> {
-    console.log(data);
-    console.log(typeof data);
-
+    
     if(params.id){
       await updateTask(params.id,data)
       toast.success('Tarea Actualizada',{position:"bottom-right",
@@ -49,8 +48,8 @@ useEffect( ()=>{
 },[])
   return (
     <>
-      <div className='max-w-xl mx-auto text-white'>
-      <h1>Crea una Tarea</h1>
+      <div className='max-w-xl mx-auto text-white text-center'>
+      <h1 className='mb-2'>Create Task</h1>
       <form onSubmit={onSubmit}>
           <input 
             className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'
@@ -67,8 +66,10 @@ useEffect( ()=>{
             />
             {errors.description && <span>Description es required</span>}
           <button
-            className='bg-indigo-500 p-3 rounded-lg block w-full mt-3 text-white'
-          >Save</button>
+            className='bg-indigo-800 hover:bg-indigo-400 p-3 rounded-lg block w-full mt-3 cursor-pointer'
+          >
+            <span className='text-white'>Save </span>
+          </button>
           
           {
             params.id && 
