@@ -76,6 +76,7 @@ useEffect( ()=>{
               params.id && 
               <div className=''>
                 <button
+                type='object'
                   className='cursor-pointer bg-red-600 hover:bg-red-400 p-3 rounded-lg w-66 mt-3 text-white'
                   onClick={async () => {
                       const aceppt = window.confirm('are you sure ')
@@ -89,7 +90,9 @@ useEffect( ()=>{
                         }
                       }
                       )
+                      navigate('/tasks')
                     }
+
                   }
                   }
                   
