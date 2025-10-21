@@ -9,7 +9,7 @@ function App(){
     
     <BrowserRouter>
       <div
-        className='container mx-auto'
+        className='container mx-auto  h-screen'
       >
         <Navigation/>
         <Routes>

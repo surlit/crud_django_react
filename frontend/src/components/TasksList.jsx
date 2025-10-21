@@ -16,7 +16,7 @@ export default function TasksList() {
   return (
     
     <div 
-        className=' grid-cols-3 gap-3 flex-column text-white'
+        className='h-full grid-cols-3 gap-3 flex-column text-white'
     >
         
         {tasksState.map(task => (
